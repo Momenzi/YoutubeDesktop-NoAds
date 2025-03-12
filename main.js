@@ -1,3 +1,14 @@
+/*!
+ * YoutubeDesktop-NoAds - Electron App 🚀
+ * (c) 2024 Momenzi
+ * Author: Momenzi
+ * GitHub: https://github.com/Momenzi/YoutubeDesktop-NoAds
+ * License: MIT
+ *
+ * Description: A YouTube Electron-based app that blocks ads and enhances user experience
+ * with premium features such as SponsorBlock, PiP mode, Audio Booster, and more.
+ */
+
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
 const fs = require('fs');
