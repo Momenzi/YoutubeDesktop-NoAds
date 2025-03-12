@@ -1,0 +1,54 @@
+console.log('📥 Video Downloader Extension Loaded!');
+
+async function getDownloadPath() {
+    return await window.electron.invoke('get-download-path');
+}
+
+async function addDownloadButton() {
+    const playerControls = document.querySelector('.ytp-right-controls');
+    if (!playerControls) {
+        console.warn('⚠ YouTube Player controls not found!');
+        return;
+    }
+
+    if (document.getElementById('customDownloadButton')) return;
+
+    // Kreiramo dugme
+    const downloadButton = document.createElement('button');
+    downloadButton.id = 'customDownloadButton';
+    downloadButton.classList.add('ytp-button');
+    downloadButton.title = 'Download Video';
+
+    // SVG ikonica
+    const iconSVG = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    iconSVG.setAttribute('width', '24');
+    iconSVG.setAttribute('height', '24');
+    iconSVG.setAttribute('viewBox', '0 0 24 24');
+    iconSVG.setAttribute('fill', 'white');
+
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('d', 'M5 20h14v-2H5v2zm7-18L5.33 9h3.92v6h4.5V9h3.92L12 2z');
+
+    iconSVG.appendChild(path);
+    downloadButton.appendChild(iconSVG);
+
+    downloadButton.onclick = async () => {
+        const videoId = new URL(window.location.href).searchParams.get('v');
+        if (videoId) {
+            console.log(`🔗 Sending download request: ${videoId}`);
+            const response = await window.electron.invoke('start-download', `https://www.youtube.com/watch?v=${videoId}`);
+
+            if (response.success) {
+                console.log(`✅ Video downloaded: ${response.filePath}`);
+                alert(`Download Complete!\nSaved to: ${response.filePath}`);
+            } else {
+                console.error(`❌ Download failed: ${response.error}`);
+                alert(`Download Failed: ${response.error}`);
+            }
+        }
+    };
+
+    playerControls.appendChild(downloadButton);
+}
+
+setTimeout(addDownloadButton, 3000);
