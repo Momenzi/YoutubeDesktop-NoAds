@@ -31,4 +31,4 @@ Current version: 0.1.0
 1️⃣ **Clone the repository:**  
 ```sh
 git clone https://github.com/Momenzi/YoutubeDesktop-NoAds.git
-cd YouTubeNoAds
+cd YoutubeDesktop-NoAds
