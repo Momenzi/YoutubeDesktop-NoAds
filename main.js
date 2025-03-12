@@ -1,6 +1,6 @@
 /*!
  * YoutubeDesktop-NoAds - Electron App 🚀
- * (c) 2024 Momenzi
+ * (c) 2025 Momenzi
  * Author: Momenzi
  * GitHub: https://github.com/Momenzi/YoutubeDesktop-NoAds
  * License: MIT
