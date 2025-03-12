@@ -6,7 +6,7 @@ Current version: 0.1.0
 
 ## ✨ **Features**  
 
-✅ **🚫 Blocks all YouTube ads** (no extensions required)  
+✅ **🚫 Blocks all YouTube ads** (thanks to https://github.com/gv3Dev)  
 ✅ **🔊 Audio Booster & Equalizer** (boost volume up to 500%)  
 ✅ **🖼 Picture-in-Picture (PiP) mode**  
 ✅ **⏩ Auto-skip sponsored segments (SponsorBlock integration)**  
